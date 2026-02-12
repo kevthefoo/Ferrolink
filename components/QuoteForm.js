@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { useState } from "react";
 
 const QuoteForm = () => {
@@ -9,6 +8,7 @@ const QuoteForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     const formData = new FormData(e.target);
 
@@ -22,7 +22,7 @@ const QuoteForm = () => {
 
       if (result.success) {
         setSubmitStatus("success");
-        e.target.reset(); // Clear the form
+        e.target.reset();
       } else {
         setSubmitStatus("error");
       }
@@ -35,49 +35,76 @@ const QuoteForm = () => {
   };
 
   return (
-    <div className="mx-auto max-w-2xl rounded-xl bg-white p-8 shadow-lg">
-      <h4 className="mb-6 text-xl font-semibold text-slate-900">
-        Request a Quote
+    <div className="rounded-sm border border-[#2D333B] bg-[#161D26] p-8">
+      <h4 className="font-display mb-1 text-2xl text-[#E6EDF3]">
+        REQUEST A QUOTE
       </h4>
-      <form className="space-y-4 text-black" onSubmit={handleSubmit}>
+      <div className="copper-line-left mb-6 w-12" />
+
+      {submitStatus === "success" && (
+        <div className="mb-6 rounded-sm border border-green-500/20 bg-green-500/5 px-4 py-3 text-sm text-green-400">
+          Quote request sent successfully! We&apos;ll respond within 1 business day.
+        </div>
+      )}
+
+      {submitStatus === "error" && (
+        <div className="mb-6 rounded-sm border border-red-500/20 bg-red-500/5 px-4 py-3 text-sm text-red-400">
+          Failed to send. Please try again or email us directly.
+        </div>
+      )}
+
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <input
             type="text"
             name="name"
             placeholder="Your Name"
-            className="rounded-lg border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-orange-600 focus:outline-none"
+            required
+            disabled={isSubmitting}
+            className="input-dark rounded-sm px-4 py-3 text-sm"
           />
           <input
             name="email"
             type="email"
             placeholder="Email Address"
-            className="rounded-lg border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-orange-600 focus:outline-none"
+            required
+            disabled={isSubmitting}
+            className="input-dark rounded-sm px-4 py-3 text-sm"
           />
         </div>
         <input
           name="company"
           type="text"
           placeholder="Company Name"
-          className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-orange-600 focus:outline-none"
+          disabled={isSubmitting}
+          className="input-dark w-full rounded-sm px-4 py-3 text-sm"
         />
-        <select className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-orange-600 focus:outline-none">
-          <option>Product Category</option>
-          <option>CNC Tools</option>
-          <option>Hammers</option>
-          <option>Axes</option>
-          <option>Garden Tools</option>
-          <option>Custom Solution</option>
+        <select
+          name="productInterest"
+          disabled={isSubmitting}
+          className="input-dark w-full rounded-sm px-4 py-3 text-sm"
+        >
+          <option value="">Product Category</option>
+          <option value="hammers">Hammers</option>
+          <option value="axes">Axes</option>
+          <option value="gardening-tools">Garden Tools</option>
+          <option value="handles">Tool Handles</option>
+          <option value="other-tools">Other Tools</option>
+          <option value="custom">Custom Solution</option>
         </select>
         <textarea
+          name="message"
           rows="4"
-          placeholder="Tell us about your project or requirements..."
-          className="w-full resize-none rounded-lg border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-orange-600 focus:outline-none"
-        ></textarea>
+          placeholder="Tell us about your requirements..."
+          disabled={isSubmitting}
+          className="input-dark w-full resize-none rounded-sm px-4 py-3 text-sm"
+        />
         <button
           type="submit"
-          className="w-full cursor-pointer rounded-lg bg-orange-600 py-3 font-semibold text-white transition-colors hover:bg-orange-700"
+          disabled={isSubmitting}
+          className="btn-copper w-full cursor-pointer rounded-sm py-3.5 text-[11px] tracking-[0.15em] uppercase disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Send Quote Request
+          {isSubmitting ? "Sending..." : "Send Quote Request"}
         </button>
       </form>
     </div>

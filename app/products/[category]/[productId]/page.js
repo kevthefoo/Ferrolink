@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getProductById, categories, productsData } from "@/data/realProducts";
 
-// Generate dynamic metadata for each product
 export async function generateMetadata({ params }) {
   const { category, productId } = await params;
   const product = getProductById(category, productId);
@@ -20,55 +19,32 @@ export async function generateMetadata({ params }) {
   return {
     title: `${product.name} - ${categoryInfo?.name || "Professional Tools"} | FerroLink Tools`,
     description: `${product.shortDescription} ${product.description.substring(0, 100)}... Professional-grade ${categoryInfo?.name?.toLowerCase() || "tools"} from FerroLink Tools.`,
-    keywords: `${product.name}, ${categoryInfo?.name}, ${category}, professional tools, industrial tools, FerroLink, ${Object.keys(product.specifications).join(", ")}`,
+    keywords: `${product.name}, ${categoryInfo?.name}, ${category}, professional tools, industrial tools, FerroLink`,
     openGraph: {
       title: `${product.name} - Professional ${categoryInfo?.name || "Tools"}`,
       description: product.shortDescription,
       url: `https://ferrolink.io/products/${category}/${productId}`,
       siteName: "FerroLink Tools",
       images: product.mainImage
-        ? [
-            {
-              url: product.mainImage,
-              width: 800,
-              height: 600,
-              alt: `${product.name} - ${categoryInfo?.name || "Professional Tool"}`,
-            },
-          ]
+        ? [{ url: product.mainImage, width: 800, height: 600, alt: product.name }]
         : [],
       locale: "en_US",
       type: "website",
     },
-    twitter: {
-      card: "summary_large_image",
-      title: `${product.name} - Professional ${categoryInfo?.name || "Tools"}`,
-      description: product.shortDescription,
-      images: product.mainImage ? [product.mainImage] : [],
-    },
-    robots: {
-      index: true,
-      follow: true,
-    },
+    robots: { index: true, follow: true },
     alternates: {
       canonical: `https://ferrolink.io/products/${category}/${productId}`,
     },
   };
 }
 
-// This function generates all possible paths for static generation
 export async function generateStaticParams() {
   const paths = [];
-
-  // Generate paths for all products
   Object.keys(productsData).forEach((categoryId) => {
     Object.keys(productsData[categoryId]).forEach((productId) => {
-      paths.push({
-        category: categoryId,
-        productId: productId,
-      });
+      paths.push({ category: categoryId, productId });
     });
   });
-
   return paths;
 }
 
@@ -79,17 +55,19 @@ export default async function ProductDetail({ params }) {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-gray-900 text-white">
+      <div className="min-h-screen">
         <Header />
-        <div className="mx-auto flex h-screen max-w-7xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="mb-4 text-4xl font-bold">Product Not Found</h1>
-          <p className="mb-8 text-gray-400">
+        <div className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
+          <h1 className="font-display mb-4 text-5xl text-[#E6EDF3]">
+            PRODUCT NOT FOUND
+          </h1>
+          <p className="mb-8 text-[#656D76]">
             The product you&apos;re looking for doesn&apos;t exist or may have
             been moved.
           </p>
           <Link
             href="/products"
-            className="rounded-lg bg-gradient-to-r from-orange-600 to-red-600 px-8 py-3 font-bold text-white transition-all duration-300 hover:from-orange-700 hover:to-red-700"
+            className="btn-copper rounded-sm px-8 py-3 text-[11px] tracking-[0.15em] uppercase"
           >
             Back to Products
           </Link>
@@ -100,65 +78,61 @@ export default async function ProductDetail({ params }) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen">
       <Header currentPage="products" />
 
-      <div className="mx-auto max-w-7xl px-4 pt-32 pb-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 pt-32 pb-12 lg:px-8">
         {/* Breadcrumb */}
-        <div className="mb-8 flex items-center text-sm text-gray-400">
-          <Link href="/" className="transition-colors hover:text-orange-400">
+        <div className="mb-10 flex items-center gap-2 text-xs text-[#656D76]">
+          <Link href="/" className="transition-colors hover:text-[#E8530E]">
             Home
           </Link>
-          <span className="mx-2">/</span>
-          <Link
-            href="/products"
-            className="transition-colors hover:text-orange-400"
-          >
+          <span>/</span>
+          <Link href="/products" className="transition-colors hover:text-[#E8530E]">
             Products
           </Link>
-          <span className="mx-2">/</span>
+          <span>/</span>
           <Link
-            href={`/products#${category}`}
-            className="transition-colors hover:text-orange-400"
+            href={`/category/${category}`}
+            className="transition-colors hover:text-[#E8530E]"
           >
             {categoryInfo?.name || category}
           </Link>
-          <span className="mx-2">/</span>
-          <span className="text-orange-400">{product.name}</span>
+          <span>/</span>
+          <span className="text-[#E8530E]">{product.name}</span>
         </div>
 
-        <div className="mb-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
-          {/* Product Images and 360° Viewer */}
+        <div className="mb-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
+          {/* Left Column - Image + Specs */}
           <div className="space-y-6">
             {/* Main Product Image */}
             {product.mainImage && (
-              <div className="rounded-2xl border border-gray-700 bg-gray-800 p-3 sm:p-4 md:p-6">
+              <div className="overflow-hidden rounded-sm border border-[#2D333B] bg-[#161D26] p-4">
                 <Image
                   src={product.mainImage}
                   alt={product.name}
                   width={600}
                   height={400}
-                  className="h-48 w-full rounded-xl object-cover sm:h-64 md:h-72 lg:h-80"
+                  className="h-64 w-full rounded-sm object-cover sm:h-72 md:h-80"
                   unoptimized
                 />
               </div>
             )}
 
             {/* Technical Specifications */}
-            <div className="mb-12 w-full rounded-xl border border-gray-700 bg-gray-800 p-4 sm:p-6">
-              <h3 className="mb-4 text-xl font-bold text-white sm:mb-6 sm:text-2xl">
-                Technical Specifications
+            <div className="rounded-sm border border-[#2D333B] bg-[#161D26] p-6">
+              <h3 className="font-display mb-1 text-xl text-[#E6EDF3]">
+                TECHNICAL SPECIFICATIONS
               </h3>
-              <div className="space-y-3 sm:space-y-4">
+              <div className="copper-line-left mb-6 w-10" />
+              <div className="space-y-3">
                 {Object.entries(product.specifications).map(([key, value]) => (
                   <div
                     key={key}
-                    className="flex flex-col gap-1 border-b border-gray-700 pb-3 sm:flex-row sm:justify-between sm:pb-2"
+                    className="flex flex-col gap-1 border-b border-[#2D333B] pb-3 sm:flex-row sm:justify-between"
                   >
-                    <span className="text-sm font-medium text-gray-400 sm:text-base">
-                      {key}:
-                    </span>
-                    <span className="text-sm font-semibold text-white sm:text-right sm:text-base">
+                    <span className="text-xs text-[#656D76]">{key}</span>
+                    <span className="text-sm font-medium text-[#E6EDF3] sm:text-right">
                       {value}
                     </span>
                   </div>
@@ -167,53 +141,43 @@ export default async function ProductDetail({ params }) {
             </div>
           </div>
 
-          {/* Product Information */}
-          <div className="space-y-8">
+          {/* Right Column - Info */}
+          <div className="space-y-6">
             {/* Header */}
             <div>
-              <div className="mb-4 flex items-center">
-                <div
-                  className={`h-12 w-12 bg-gradient-to-br ${
-                    categoryInfo?.color || "from-gray-500 to-gray-700"
-                  } mr-4 flex items-center justify-center rounded-lg`}
-                >
-                  <span className="text-xl text-white">
-                    {categoryInfo?.emoji || "🔧"}
-                  </span>
-                </div>
-                <div>
-                  <div className="text-sm font-semibold tracking-wide text-orange-400 uppercase">
-                    {product.categoryName}
-                  </div>
-                  <h1 className="text-3xl font-bold text-white">
-                    {product.name}
-                  </h1>
-                </div>
-              </div>
-              <p className="text-xl leading-relaxed text-gray-300">
+              <span className="tracking-luxury mb-3 block text-[10px] font-semibold text-[#E8530E] uppercase">
+                {product.categoryName}
+              </span>
+              <h1 className="font-display mb-2 text-4xl text-[#E6EDF3] md:text-5xl">
+                {product.name.toUpperCase()}
+              </h1>
+              <div className="copper-line-left mb-6 w-16" />
+              <p className="text-sm leading-relaxed text-[#9BA4AE]">
                 {product.shortDescription}
               </p>
             </div>
 
             {/* Description */}
-            <div className="mt-12 rounded-xl border border-gray-700 bg-gray-800 p-6">
-              <h3 className="mb-4 text-xl font-bold text-white">
-                Product Description
+            <div className="rounded-sm border border-[#2D333B] bg-[#161D26] p-6">
+              <h3 className="font-display mb-1 text-lg text-[#E6EDF3]">
+                DESCRIPTION
               </h3>
-              <p className="leading-relaxed text-gray-300">
+              <div className="copper-line-left mb-4 w-8" />
+              <p className="text-sm leading-relaxed text-[#656D76]">
                 {product.description}
               </p>
             </div>
 
             {/* Key Features */}
-            <div className="rounded-xl border border-gray-700 bg-gray-800 p-6">
-              <h3 className="mb-4 text-xl font-bold text-white">
-                Key Features
+            <div className="rounded-sm border border-[#2D333B] bg-[#161D26] p-6">
+              <h3 className="font-display mb-1 text-lg text-[#E6EDF3]">
+                KEY FEATURES
               </h3>
+              <div className="copper-line-left mb-4 w-8" />
               <ul className="space-y-3">
                 {product.features.map((feature, index) => (
-                  <li key={index} className="flex items-start text-gray-300">
-                    <span className="mt-2 mr-3 h-2 w-2 flex-shrink-0 rounded-full bg-orange-500"></span>
+                  <li key={index} className="flex items-start gap-3 text-sm text-[#9BA4AE]">
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#E8530E]" />
                     {feature}
                   </li>
                 ))}
@@ -221,39 +185,39 @@ export default async function ProductDetail({ params }) {
             </div>
 
             {/* Applications */}
-            <div className="rounded-xl border border-gray-700 bg-gray-800 p-6">
-              <h3 className="mb-4 text-xl font-bold text-white">
-                Applications
+            <div className="rounded-sm border border-[#2D333B] bg-[#161D26] p-6">
+              <h3 className="font-display mb-1 text-lg text-[#E6EDF3]">
+                APPLICATIONS
               </h3>
+              <div className="copper-line-left mb-4 w-8" />
               <ul className="space-y-2">
                 {product.applications.map((application, index) => (
-                  <li key={index} className="flex items-start text-gray-300">
-                    <span className="mt-2 mr-3 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></span>
+                  <li key={index} className="flex items-start gap-3 text-sm text-[#9BA4AE]">
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#656D76]" />
                     {application}
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/contact"
-                className="flex-1 rounded-xl bg-gradient-to-r from-orange-600 to-red-600 px-8 py-4 text-center font-bold text-white shadow-lg transition-all duration-300 hover:from-orange-700 hover:to-red-700"
-              >
-                REQUEST QUOTE
-              </Link>
-            </div>
+            {/* CTA */}
+            <Link
+              href="/contact"
+              className="btn-copper block rounded-sm py-4 text-center text-[12px] tracking-[0.15em] uppercase"
+            >
+              Request Quote
+            </Link>
           </div>
         </div>
 
         {/* Related Products */}
         {product.relatedProducts && product.relatedProducts.length > 0 && (
-          <div className="mb-12">
-            <h3 className="mb-8 text-center text-2xl font-bold text-white">
+          <section className="mb-16">
+            <div className="copper-line mb-12" />
+            <h3 className="font-display mb-8 text-center text-2xl text-[#E6EDF3]">
               RELATED PRODUCTS
             </h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
               {product.relatedProducts.slice(0, 3).map((relatedId) => {
                 const relatedProduct = getProductById(category, relatedId);
                 if (!relatedProduct) return null;
@@ -262,31 +226,33 @@ export default async function ProductDetail({ params }) {
                   <Link
                     key={relatedId}
                     href={`/products/${category}/${relatedId}`}
-                    className="group rounded-xl border border-gray-700 bg-gray-800 p-6 transition-all duration-300 hover:border-orange-500"
+                    className="card-dark group overflow-hidden rounded-sm"
                   >
                     {relatedProduct.mainImage && (
-                      <div className="mb-4 h-48 w-full overflow-hidden rounded-lg bg-gray-700">
+                      <div className="h-48 w-full overflow-hidden bg-[#161D26]">
                         <Image
                           src={relatedProduct.mainImage}
                           alt={relatedProduct.name}
                           width={200}
                           height={128}
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                           unoptimized
                         />
                       </div>
                     )}
-                    <h4 className="mb-2 line-clamp-2 flex h-16 items-start text-lg font-bold text-white transition-colors group-hover:text-orange-400">
-                      {relatedProduct.name}
-                    </h4>
-                    <p className="mb-3 line-clamp-3 text-sm text-gray-400">
-                      {relatedProduct.shortDescription}
-                    </p>
+                    <div className="p-5">
+                      <h4 className="font-display mb-2 line-clamp-2 text-lg text-[#E6EDF3] transition-colors group-hover:text-[#E8530E]">
+                        {relatedProduct.name.toUpperCase()}
+                      </h4>
+                      <p className="line-clamp-2 text-xs leading-relaxed text-[#656D76]">
+                        {relatedProduct.shortDescription}
+                      </p>
+                    </div>
                   </Link>
                 );
               })}
             </div>
-          </div>
+          </section>
         )}
       </div>
       <Footer />

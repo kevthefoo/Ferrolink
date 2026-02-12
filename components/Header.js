@@ -5,219 +5,146 @@ import Link from "next/link";
 
 export default function Header({ currentPage = "home" }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
-
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    // Cleanup on unmount
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
+
+  const navItems = [
+    { href: "/", label: "Home", key: "home" },
+    { href: "/products", label: "Products", key: "products" },
+    { href: "/about", label: "About", key: "about" },
+    { href: "/contact", label: "Contact", key: "contact" },
+  ];
+
   return (
-    <header className="fixed z-50000 w-full border-b border-gray-700 bg-gray-900 shadow-2xl">
-      {/* <div className="metal-texture absolute inset-0 opacity-20"></div> */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-6">
-          <div className="flex items-center space-x-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500 to-red-600">
-              <span className="text-xl font-bold text-white select-none">
-                F
-              </span>
-            </div>
-            <div>
-              <Link
-                href="/"
-                className="text-3xl font-bold text-white transition-colors select-none hover:text-orange-400"
-              >
-                FERROLINK
-              </Link>
-              <div className="text-xs font-semibold tracking-wider text-orange-400 select-none">
-                INDUSTRIAL TOOLS
-              </div>
-            </div>
+    <header
+      className={`fixed top-0 z-[9000] w-full transition-all duration-500 ${
+        scrolled
+          ? "border-b border-[#2D333B] bg-[#0B0F14]/95 py-4 backdrop-blur-xl"
+          : "bg-transparent py-6"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
+        {/* Logo */}
+        <Link href="/" className="group flex items-center gap-3">
+          <div className="relative flex h-10 w-10 items-center justify-center">
+            <div className="copper-gradient absolute inset-0 rounded-sm opacity-90 transition-opacity group-hover:opacity-100" />
+            <span className="font-display relative text-2xl text-white">F</span>
           </div>
-          <nav className="hidden space-x-8 md:flex">
-            <Link
-              href="/"
-              className={`group relative text-sm font-bold tracking-wide transition-colors select-none ${
-                currentPage === "home"
-                  ? "text-orange-400"
-                  : "text-gray-300 hover:text-orange-400"
-              }`}
-            >
-              HOME
-              {currentPage === "home" && (
-                <div className="absolute right-0 -bottom-2 left-0 h-0.5 bg-orange-400"></div>
-              )}
-            </Link>
-            <Link
-              href="/products"
-              className={`group relative text-sm font-bold tracking-wide transition-colors select-none ${
-                currentPage === "products"
-                  ? "text-orange-400"
-                  : "text-gray-300 hover:text-orange-400"
-              }`}
-            >
-              PRODUCTS
-              {currentPage === "products" && (
-                <div className="absolute right-0 -bottom-2 left-0 h-0.5 bg-orange-400"></div>
-              )}
-            </Link>
-            <Link
-              href="/about"
-              className={`group relative text-sm font-bold tracking-wide transition-colors select-none ${
-                currentPage === "about"
-                  ? "text-orange-400"
-                  : "text-gray-300 hover:text-orange-400"
-              }`}
-            >
-              ABOUT
-              {currentPage === "about" && (
-                <div className="absolute right-0 -bottom-2 left-0 h-0.5 bg-orange-400"></div>
-              )}
-            </Link>
-            <Link
-              href="/contact"
-              className={`group relative text-sm font-bold tracking-wide transition-colors select-none ${
-                currentPage === "contact"
-                  ? "text-orange-400"
-                  : "text-gray-300 hover:text-orange-400"
-              }`}
-            >
-              CONTACT
-              {currentPage === "contact" && (
-                <div className="absolute right-0 -bottom-2 left-0 h-0.5 bg-orange-400"></div>
-              )}
-            </Link>
-          </nav>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={toggleMobileMenu}
-              className="rounded p-1 text-gray-300 transition-colors hover:text-orange-400 focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
-              aria-label="Toggle mobile menu"
-            >
-              <svg
-                className={`h-7 w-7 transition-transform duration-200 ${isMobileMenuOpen ? "rotate-90" : ""}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-              >
-                {isMobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
+          <div className="flex flex-col">
+            <span className="font-display text-2xl leading-none text-[#E6EDF3] transition-colors group-hover:text-[#E8530E]">
+              FERROLINK
+            </span>
+            <span className="tracking-luxury text-[9px] font-medium text-[#656D76]">
+              INDUSTRIAL TOOLS
+            </span>
           </div>
-        </div>
+        </Link>
 
-        {/* Mobile Navigation Menu */}
-        <div
-          className={`absolute top-full left-0 h-screen w-full overflow-hidden bg-gray-900/95 backdrop-blur-sm transition-all duration-300 ease-in-out md:hidden ${
-            isMobileMenuOpen
-              ? "max-h-screen opacity-100 shadow-2xl"
-              : "max-h-0 opacity-0"
-          }`}
+        {/* Desktop Nav */}
+        <nav className="hidden items-center gap-10 md:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.key}
+              href={item.href}
+              className={`tracking-luxury group relative text-[11px] font-semibold uppercase transition-colors ${
+                currentPage === item.key
+                  ? "text-[#E8530E]"
+                  : "text-[#9BA4AE] hover:text-[#E6EDF3]"
+              }`}
+            >
+              {item.label}
+              <span
+                className={`absolute -bottom-1.5 left-0 h-[2px] transition-all duration-300 ${
+                  currentPage === item.key
+                    ? "w-full bg-[#E8530E]"
+                    : "w-0 bg-[#E8530E] group-hover:w-full"
+                }`}
+              />
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            className="btn-copper rounded-sm px-5 py-2.5 text-[11px] tracking-[0.15em] uppercase"
+          >
+            Get Quote
+          </Link>
+        </nav>
+
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          aria-label="Toggle menu"
         >
-          <div className="border-t border-gray-700">
-            <nav className="space-y-2 px-6 py-8">
-              <Link
-                href="/"
-                onClick={closeMobileMenu}
-                className={`flex items-center space-x-4 rounded-xl px-4 py-4 text-lg font-bold transition-all duration-200 ${
-                  currentPage === "home"
-                    ? "bg-orange-500/20 text-orange-400 shadow-lg"
-                    : "text-gray-300 hover:bg-gray-800/50 hover:text-orange-400"
-                }`}
-              >
-                <span className="text-2xl">🏠</span>
-                <span>HOME</span>
-              </Link>
+          <span
+            className={`h-[1.5px] w-6 bg-[#9BA4AE] transition-all duration-300 ${
+              isMobileMenuOpen ? "translate-y-[4.5px] rotate-45 bg-[#E8530E]" : ""
+            }`}
+          />
+          <span
+            className={`h-[1.5px] w-6 bg-[#9BA4AE] transition-all duration-300 ${
+              isMobileMenuOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`h-[1.5px] w-6 bg-[#9BA4AE] transition-all duration-300 ${
+              isMobileMenuOpen ? "-translate-y-[4.5px] -rotate-45 bg-[#E8530E]" : ""
+            }`}
+          />
+        </button>
+      </div>
 
-              <Link
-                href="/products"
-                onClick={closeMobileMenu}
-                className={`flex items-center space-x-4 rounded-xl px-4 py-4 text-lg font-bold transition-all duration-200 ${
-                  currentPage === "products"
-                    ? "bg-orange-500/20 text-orange-400 shadow-lg"
-                    : "text-gray-300 hover:bg-gray-800/50 hover:text-orange-400"
-                }`}
-              >
-                <span className="text-2xl">🛠️</span>
-                <span>PRODUCTS</span>
-              </Link>
+      {/* Mobile Menu */}
+      <div
+        className={`fixed inset-0 top-0 z-40 bg-[#0B0F14]/98 backdrop-blur-xl transition-all duration-500 md:hidden ${
+          isMobileMenuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
+        }`}
+      >
+        <div className="flex h-full flex-col items-center justify-center gap-8">
+          {navItems.map((item, i) => (
+            <Link
+              key={item.key}
+              href={item.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`font-display text-5xl transition-all duration-300 ${
+                currentPage === item.key
+                  ? "accent-text"
+                  : "text-[#E6EDF3] hover:text-[#E8530E]"
+              }`}
+              style={{
+                transitionDelay: isMobileMenuOpen ? `${i * 80}ms` : "0ms",
+                transform: isMobileMenuOpen ? "translateY(0)" : "translateY(20px)",
+                opacity: isMobileMenuOpen ? 1 : 0,
+              }}
+            >
+              {item.label}
+            </Link>
+          ))}
 
-              <Link
-                href="/about"
-                onClick={closeMobileMenu}
-                className={`flex items-center space-x-4 rounded-xl px-4 py-4 text-lg font-bold transition-all duration-200 ${
-                  currentPage === "about"
-                    ? "bg-orange-500/20 text-orange-400 shadow-lg"
-                    : "text-gray-300 hover:bg-gray-800/50 hover:text-orange-400"
-                }`}
-              >
-                <span className="text-2xl">ℹ️</span>
-                <span>ABOUT</span>
-              </Link>
-
-              <Link
-                href="/contact"
-                onClick={closeMobileMenu}
-                className={`flex items-center space-x-4 rounded-xl px-4 py-4 text-lg font-bold transition-all duration-200 ${
-                  currentPage === "contact"
-                    ? "bg-orange-500/20 text-orange-400 shadow-lg"
-                    : "text-gray-300 hover:bg-gray-800/50 hover:text-orange-400"
-                }`}
-              >
-                <span className="text-2xl">📞</span>
-                <span>CONTACT</span>
-              </Link>
-
-              {/* Mobile CTA Button */}
-              <div className="mt-6 border-t border-gray-700 pt-6">
-                <Link
-                  href="/contact"
-                  onClick={closeMobileMenu}
-                  className="flex w-full items-center justify-center space-x-3 rounded-xl bg-gradient-to-r from-orange-600 to-red-600 px-8 py-4 font-bold text-white shadow-xl transition-all duration-300 hover:from-orange-700 hover:to-red-700"
-                >
-                  <span>💬</span>
-                  <span>GET QUOTE</span>
-                </Link>
-
-                <div className="mt-4 text-center">
-                  <div className="flex justify-center space-x-4 text-sm text-gray-400">
-                    <span>📞 +886 47766093</span>
-                    <span>📧 support@ferrolink.io</span>
-                  </div>
-                </div>
-              </div>
-            </nav>
+          <div
+            className="mt-4 flex flex-col items-center gap-3 text-sm text-[#656D76]"
+            style={{
+              transitionDelay: isMobileMenuOpen ? "400ms" : "0ms",
+              opacity: isMobileMenuOpen ? 1 : 0,
+              transition: "opacity 0.5s ease",
+            }}
+          >
+            <span>+886 47766093</span>
+            <span>support@ferrolink.io</span>
           </div>
         </div>
       </div>

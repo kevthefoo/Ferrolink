@@ -73,68 +73,115 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 flex min-h-screen items-center">
-          <div className="mx-auto max-w-7xl px-6 py-32 lg:px-8">
-            <div className="max-w-3xl">
-              {/* Industrial badge */}
-              <div className="mb-8 animate-fade-in-up opacity-0">
-                <span className="inline-flex items-center gap-3 border-l-4 border-[#E8530E] bg-[#E8530E]/10 px-5 py-2.5 text-[11px] font-bold tracking-[0.2em] text-[#E8530E] uppercase backdrop-blur-sm">
-                  <span className="h-2 w-2 rounded-full bg-[#E8530E] animate-pulse" />
-                  Precision Engineered Since 1999
-                </span>
+          <div className="mx-auto max-w-7xl px-6 py-32 lg:px-8 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Left side - Text content */}
+              <div>
+                {/* Industrial badge */}
+                <div className="mb-8 animate-fade-in-up opacity-0">
+                  <span className="inline-flex items-center gap-3 border-l-4 border-[#E8530E] bg-[#E8530E]/10 px-5 py-2.5 text-[11px] font-bold tracking-[0.2em] text-[#E8530E] uppercase backdrop-blur-sm">
+                    <span className="h-2 w-2 rounded-full bg-[#E8530E] animate-pulse" />
+                    Precision Engineered Since 1999
+                  </span>
+                </div>
+
+                {/* Main heading */}
+                <h1 className="animate-fade-in-up mb-6 opacity-0 delay-100">
+                  <span className="font-display block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85] text-white">
+                    INDUSTRIAL
+                  </span>
+                  <span className="font-display block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85] text-white">
+                    GRADE
+                  </span>
+                  <span className="font-display accent-text block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85]">
+                    TOOLS
+                  </span>
+                </h1>
+
+                {/* Accent bar */}
+                <div className="mb-8 flex items-center gap-4 animate-fade-in-up opacity-0 delay-200">
+                  <div className="h-[3px] w-20 bg-[#E8530E] animate-expand-width" />
+                  <div className="h-[3px] w-8 bg-[#E8530E]/40" />
+                  <div className="h-[3px] w-4 bg-[#E8530E]/20" />
+                </div>
+
+                {/* Subtext */}
+                <p className="mb-10 max-w-lg animate-fade-in-up text-lg leading-relaxed text-[#9BA4AE] opacity-0 delay-300">
+                  From CNC cutting tools to heavy-duty hammers and axes.
+                  Built for professionals who demand uncompromising performance
+                  and reliability on every job site.
+                </p>
+
+                {/* CTAs */}
+                <div className="flex flex-col gap-4 animate-fade-in-up opacity-0 delay-400 sm:flex-row">
+                  <Link
+                    href="/products"
+                    className="btn-copper rounded-sm px-10 py-4 text-center text-[12px] tracking-[0.15em] uppercase"
+                  >
+                    Explore Catalog
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="btn-outline rounded-sm px-10 py-4 text-center text-[12px] tracking-[0.15em] uppercase backdrop-blur-sm"
+                  >
+                    Request Quote
+                  </Link>
+                </div>
               </div>
 
-              {/* Main heading */}
-              <h1 className="animate-fade-in-up mb-6 opacity-0 delay-100">
-                <span className="font-display block text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-white">
-                  INDUSTRIAL
-                </span>
-                <span className="font-display block text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-white">
-                  GRADE
-                </span>
-                <span className="font-display accent-text block text-[clamp(3.5rem,9vw,8rem)] leading-[0.85]">
-                  TOOLS
-                </span>
-              </h1>
+              {/* Right side - Featured image showcase */}
+              <div className="relative hidden lg:flex items-center justify-center animate-fade-in-up opacity-0 delay-300">
+                <div className="relative">
+                  {/* Decorative border frame */}
+                  <div className="absolute -inset-4 rounded-sm border border-[#E8530E]/20" />
+                  <div className="absolute -inset-8 rounded-sm border border-[#E8530E]/10" />
 
-              {/* Accent bar */}
-              <div className="mb-8 flex items-center gap-4 animate-fade-in-up opacity-0 delay-200">
-                <div className="h-[3px] w-20 bg-[#E8530E] animate-expand-width" />
-                <div className="h-[3px] w-8 bg-[#E8530E]/40" />
-                <div className="h-[3px] w-4 bg-[#E8530E]/20" />
-              </div>
+                  {/* Corner accents */}
+                  <div className="absolute -top-8 -left-8 h-6 w-6 border-t-2 border-l-2 border-[#E8530E]" />
+                  <div className="absolute -top-8 -right-8 h-6 w-6 border-t-2 border-r-2 border-[#E8530E]" />
+                  <div className="absolute -bottom-8 -left-8 h-6 w-6 border-b-2 border-l-2 border-[#E8530E]" />
+                  <div className="absolute -bottom-8 -right-8 h-6 w-6 border-b-2 border-r-2 border-[#E8530E]" />
 
-              {/* Subtext */}
-              <p className="mb-10 max-w-lg animate-fade-in-up text-lg leading-relaxed text-[#9BA4AE] opacity-0 delay-300">
-                From CNC cutting tools to heavy-duty hammers and axes.
-                Built for professionals who demand uncompromising performance
-                and reliability on every job site.
-              </p>
+                  {/* Main image */}
+                  <div className="relative h-[450px] w-[450px] overflow-hidden rounded-sm">
+                    <Image
+                      src="/assets/materials/cnc2.png"
+                      alt="CNC Precision Tools"
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F14]/60 via-transparent to-transparent" />
+                  </div>
 
-              {/* CTAs */}
-              <div className="flex flex-col gap-4 animate-fade-in-up opacity-0 delay-400 sm:flex-row">
-                <Link
-                  href="/products"
-                  className="btn-copper rounded-sm px-10 py-4 text-center text-[12px] tracking-[0.15em] uppercase"
-                >
-                  Explore Catalog
-                </Link>
-                <Link
-                  href="/contact"
-                  className="btn-outline rounded-sm px-10 py-4 text-center text-[12px] tracking-[0.15em] uppercase backdrop-blur-sm"
-                >
-                  Request Quote
-                </Link>
+                  {/* Floating accent badge */}
+                  <div className="absolute -bottom-6 -left-6 rounded-sm border border-[#2D333B] bg-[#161D26]/95 px-5 py-3 backdrop-blur-sm">
+                    <div className="text-[10px] font-semibold tracking-wider text-[#E8530E] uppercase">Trusted by</div>
+                    <div className="font-display text-2xl text-white">
+                      <AnimatedCounter value="50" suffix="+" /> Countries
+                    </div>
+                  </div>
+
+                  {/* Floating accent badge top-right */}
+                  <div className="absolute -top-6 -right-6 rounded-sm border border-[#2D333B] bg-[#161D26]/95 px-5 py-3 backdrop-blur-sm">
+                    <div className="text-[10px] font-semibold tracking-wider text-[#E8530E] uppercase">Since</div>
+                    <div className="font-display text-2xl text-white">1999</div>
+                  </div>
+
+                  {/* Glow effect */}
+                  <div className="absolute -inset-12 -z-10 bg-[#E8530E]/5 blur-3xl rounded-full" />
+                </div>
               </div>
             </div>
 
-            {/* Stats row */}
-            <div className="mt-20 grid max-w-3xl grid-cols-3 gap-0 animate-fade-in-up opacity-0 delay-500 rounded-sm border border-[#2D333B] bg-[#0B0F14]/80 backdrop-blur-md overflow-hidden">
+            {/* Stats row - full width below both columns */}
+            <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-0 animate-fade-in-up opacity-0 delay-500 rounded-sm border border-[#2D333B] bg-[#0B0F14]/80 backdrop-blur-md overflow-hidden">
               {[
                 { value: "25", suffix: "+", label: "Years Experience", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
                 { value: "1000", suffix: "+", label: "Products", icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" },
                 { value: "50", suffix: "+", label: "Countries", icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
               ].map((stat, i) => (
-                <div key={stat.label} className={`flex items-center gap-4 px-8 py-6 ${i < 2 ? "border-r border-[#2D333B]" : ""}`}>
+                <div key={stat.label} className={`flex items-center gap-4 px-8 py-6 ${i < 2 ? "sm:border-r border-b sm:border-b-0 border-[#2D333B]" : ""}`}>
                   <svg className="h-6 w-6 flex-shrink-0 text-[#E8530E]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d={stat.icon} />
                   </svg>

@@ -1,6 +1,7 @@
 import { Bebas_Neue, Libre_Franklin } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { organizationSchema, websiteSchema } from "@/lib/structured-data";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -57,8 +58,7 @@ export const metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
+    google: "-lUHTZZZoLuFeqAlbqaxHi_R-IHyaWcF1EOI7tz8Iso",
   },
 };
 
@@ -68,6 +68,18 @@ export default function RootLayout({ children }) {
       <body
         className={`${bebasNeue.variable} ${libreFranklin.variable} noise-overlay antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
         {children}
       </body>
       <GoogleAnalytics gaId="G-B9VNSHRRRE" />

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { contactFAQs } from "./faq-data";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -467,6 +468,52 @@ export default function Contact() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative bg-[#111820] py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <p className="tracking-luxury mb-4 text-[10px] font-semibold uppercase text-[#E8530E]">
+              Common Questions
+            </p>
+            <h2 className="font-display mb-6 text-4xl text-[#E6EDF3]">
+              FREQUENTLY ASKED QUESTIONS
+            </h2>
+            <div className="copper-line mx-auto w-24" />
+          </div>
+
+          <div className="mx-auto max-w-3xl space-y-4">
+            {contactFAQs.map((faq, index) => (
+              <details
+                key={index}
+                className="group rounded-sm border border-[#2D333B] bg-[#161D26] transition-all duration-300 hover:border-[#E8530E]/30"
+              >
+                <summary className="flex cursor-pointer items-center justify-between p-6 text-sm font-semibold text-[#E6EDF3]">
+                  {faq.question}
+                  <svg
+                    className="h-5 w-5 flex-shrink-0 text-[#E8530E] transition-transform duration-300 group-open:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </summary>
+                <div className="border-t border-[#2D333B] px-6 pb-6 pt-4">
+                  <p className="text-sm leading-relaxed text-[#9BA4AE]">
+                    {faq.answer}
+                  </p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>

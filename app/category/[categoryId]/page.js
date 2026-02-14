@@ -3,6 +3,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { categories, getProductsByCategory } from "@/data/realProducts";
+import { generateBreadcrumbSchema } from "@/lib/structured-data";
 
 export async function generateMetadata({ params }) {
   const { categoryId } = await params;
@@ -68,8 +69,23 @@ export default async function CategoryPage({ params }) {
 
   const productList = Object.values(categoryProducts);
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://ferrolink.io" },
+    { name: "Products", url: "https://ferrolink.io/products" },
+    {
+      name: category.name,
+      url: `https://ferrolink.io/category/${categoryId}`,
+    },
+  ]);
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <Header currentPage="products" />
 
       <div className="mx-auto max-w-7xl px-6 pt-32 pb-16 lg:px-8">
@@ -150,11 +166,11 @@ export default async function CategoryPage({ params }) {
                       {product.mainImage ? (
                         <Image
                           src={product.mainImage}
-                          alt={product.name}
+                          alt={`${product.name} - Professional ${category.name.toLowerCase()} tool by FerroLink`}
                           width={200}
                           height={200}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          unoptimized
                         />
                       ) : (
                         <span className="text-3xl text-[#444C56]">

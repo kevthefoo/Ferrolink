@@ -1,4 +1,5 @@
 import { categories, productsData } from "@/data/realProducts";
+import { blogPosts } from "@/data/blog-posts";
 
 export default function sitemap() {
   const baseUrl = "https://ferrolink.io";
@@ -29,6 +30,12 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
 
   // Category pages
@@ -52,5 +59,13 @@ export default function sitemap() {
     });
   });
 
-  return [...staticPages, ...categoryPages, ...productPages];
+  // Blog pages
+  const blogPages = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.modifiedDate || post.date),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...categoryPages, ...productPages, ...blogPages];
 }

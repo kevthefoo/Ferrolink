@@ -182,10 +182,10 @@ export default function Products() {
                   {product.mainImage ? (
                     <Image
                       src={product.mainImage}
-                      alt={product.name}
+                      alt={`${product.name} - Professional ${product.categoryName?.toLowerCase() || "tool"} by FerroLink`}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      unoptimized
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center">

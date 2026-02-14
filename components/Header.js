@@ -23,6 +23,7 @@ export default function Header({ currentPage = "home" }) {
   const navItems = [
     { href: "/", label: "Home", key: "home" },
     { href: "/products", label: "Products", key: "products" },
+    { href: "/blog", label: "Blog", key: "blog" },
     { href: "/about", label: "About", key: "about" },
     { href: "/contact", label: "Contact", key: "contact" },
   ];

@@ -3,6 +3,10 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getProductById, categories, productsData } from "@/data/realProducts";
+import {
+  generateProductSchema,
+  generateBreadcrumbSchema,
+} from "@/lib/structured-data";
 
 export async function generateMetadata({ params }) {
   const { category, productId } = await params;
@@ -77,8 +81,39 @@ export default async function ProductDetail({ params }) {
     );
   }
 
+  const productSchema = generateProductSchema(
+    product,
+    categoryInfo,
+    category,
+    productId,
+  );
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://ferrolink.io" },
+    { name: "Products", url: "https://ferrolink.io/products" },
+    {
+      name: categoryInfo?.name || category,
+      url: `https://ferrolink.io/category/${category}`,
+    },
+    {
+      name: product.name,
+      url: `https://ferrolink.io/products/${category}/${productId}`,
+    },
+  ]);
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <Header currentPage="products" />
 
       <div className="mx-auto max-w-7xl px-6 pt-32 pb-12 lg:px-8">
@@ -110,11 +145,12 @@ export default async function ProductDetail({ params }) {
               <div className="overflow-hidden rounded-sm border border-[#2D333B] bg-[#161D26] p-4">
                 <Image
                   src={product.mainImage}
-                  alt={product.name}
+                  alt={`${product.name} - Professional ${categoryInfo?.name?.toLowerCase() || "tool"} by FerroLink`}
                   width={600}
                   height={400}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="h-64 w-full rounded-sm object-cover sm:h-72 md:h-80"
-                  unoptimized
+                  priority
                 />
               </div>
             )}
@@ -232,11 +268,11 @@ export default async function ProductDetail({ params }) {
                       <div className="h-48 w-full overflow-hidden bg-[#161D26]">
                         <Image
                           src={relatedProduct.mainImage}
-                          alt={relatedProduct.name}
+                          alt={`${relatedProduct.name} - Related professional tool by FerroLink`}
                           width={200}
                           height={128}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          unoptimized
                         />
                       </div>
                     )}

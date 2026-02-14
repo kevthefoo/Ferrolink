@@ -8,6 +8,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import FloatingSparks from "@/components/FloatingSparks";
 import { categories, getProductsByCategory } from "@/data/realProducts";
+import { manufacturerSchema } from "@/lib/structured-data";
 
 export const metadata = {
   title: "FerroLink Tools - Premium Industrial Hand Tools & CNC Equipment",
@@ -46,6 +47,12 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(manufacturerSchema),
+        }}
+      />
       <Header currentPage="home" />
 
       {/* ═══ HERO ═══ */}
@@ -54,11 +61,11 @@ export default function Home() {
         <div className="absolute inset-0">
           <Image
             src="/assets/materials/stainlessbanner.png"
-            alt="Industrial precision tools"
+            alt="FerroLink industrial tools manufacturing - professional hand tools and CNC equipment"
             fill
+            sizes="100vw"
             className="object-cover object-center"
             priority
-            unoptimized
           />
           {/* Dark overlay for readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F14]/95 via-[#0B0F14]/80 to-[#0B0F14]/40" />
@@ -87,13 +94,14 @@ export default function Home() {
 
                 {/* Main heading */}
                 <h1 className="animate-fade-in-up mb-6 opacity-0 delay-100">
-                  <span className="font-display block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85] text-white">
+                  <span className="sr-only">FerroLink Industrial Grade Tools - Professional Hand Tools & CNC Equipment Manufacturer in Taiwan</span>
+                  <span className="font-display block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85] text-white" aria-hidden="true">
                     INDUSTRIAL
                   </span>
-                  <span className="font-display block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85] text-white">
+                  <span className="font-display block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85] text-white" aria-hidden="true">
                     GRADE
                   </span>
-                  <span className="font-display accent-text block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85]">
+                  <span className="font-display accent-text block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85]" aria-hidden="true">
                     TOOLS
                   </span>
                 </h1>
@@ -146,10 +154,10 @@ export default function Home() {
                   <div className="relative h-[450px] w-[450px] overflow-hidden rounded-sm">
                     <Image
                       src="/assets/materials/cnc2.png"
-                      alt="CNC Precision Tools"
+                      alt="FerroLink CNC precision cutting tools - industrial manufacturing equipment"
                       fill
+                      sizes="(max-width: 1024px) 0px, 450px"
                       className="object-cover"
-                      unoptimized
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F14]/60 via-transparent to-transparent" />
                   </div>
@@ -253,11 +261,11 @@ export default function Home() {
                         {sampleProduct && sampleProduct.mainImage ? (
                           <Image
                             src={sampleProduct.mainImage}
-                            alt={sampleProduct.name}
+                            alt={`${sampleProduct.name} - Professional ${category.name.toLowerCase()} tool by FerroLink`}
                             width={140}
                             height={140}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
                             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            unoptimized
                           />
                         ) : (
                           <span className="text-3xl opacity-30">
@@ -300,10 +308,10 @@ export default function Home() {
           <ScrollReveal animation="fade-right" className="relative h-[500px] lg:h-auto">
             <Image
               src="/assets/materials/cnc.png"
-              alt="CNC Manufacturing Equipment"
+              alt="FerroLink CNC manufacturing equipment - precision engineering facility"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
-              unoptimized
             />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0B0F14]/80 lg:bg-gradient-to-r lg:from-transparent lg:to-[#0B0F14]" />
           </ScrollReveal>

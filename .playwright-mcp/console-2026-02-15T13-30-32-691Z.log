@@ -1,4 +1,0 @@
-[     889ms] [WARNING] Image with src "/assets/logo/ferrolink-logo.png" was detected as the Largest Contentful Paint (LCP). Please add the "priority" property if this image is above the fold.
-Read more: https://nextjs.org/docs/api-reference/next/image#priority @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:968
-[  103314ms] [WARNING] Image with src "/assets/materials/cnc2.png" was detected as the Largest Contentful Paint (LCP). Please add the "priority" property if this image is above the fold.
-Read more: https://nextjs.org/docs/api-reference/next/image#priority @ http://localhost:3001/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:968

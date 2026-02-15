@@ -1,2 +1,0 @@
-[    1510ms] [WARNING] Image with src "/assets/products/Hammer/F-10.jpg" was detected as the Largest Contentful Paint (LCP). Please add the "priority" property if this image is above the fold.
-Read more: https://nextjs.org/docs/api-reference/next/image#priority @ http://localhost:3006/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:968

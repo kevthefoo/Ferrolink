@@ -458,7 +458,7 @@ export default function Home() {
       <section className="relative border-t border-[#2D333B] bg-[#111820] py-16 sm:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-10 sm:gap-16 lg:grid-cols-2">
-            <ScrollReveal animation="fade-right">
+            <ScrollReveal animation="">
               <div>
                 <span className="tracking-luxury mb-4 block text-[10px] font-semibold text-[#E8530E] uppercase">
                   Our Heritage

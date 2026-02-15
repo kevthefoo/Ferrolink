@@ -11,9 +11,15 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-12 md:gap-16">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3">
-            <div className="mb-8 flex items-center gap-3">
+            <div className="mb-8 flex items-center select-none">
               <div className="flex h-14 w-14 items-center justify-center rounded-sm">
-                <Image src="/assets/logo/ferrolink-logo.png" alt="FerroLink" width={56} height={56} className="h-full w-auto rounded-sm object-contain" />
+                <Image
+                  src="/assets/logo/ferrolink-logo.png"
+                  alt="FerroLink"
+                  width={56}
+                  height={56}
+                  className="h-full w-auto rounded-sm object-contain"
+                />
               </div>
               <div>
                 <span className="font-display text-2xl text-[#E6EDF3]">
@@ -46,7 +52,7 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[#656D76] transition-colors hover:text-[#E6EDF3]"
+                    className="text-sm text-[#656D76] transition-colors select-none hover:text-[#E6EDF3]"
                   >
                     {item.label}
                   </Link>
@@ -70,7 +76,7 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[#656D76] transition-colors hover:text-[#E6EDF3]"
+                    className="text-sm text-[#656D76] transition-colors select-none hover:text-[#E6EDF3]"
                   >
                     {item.label}
                   </Link>
@@ -93,7 +99,7 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[#656D76] transition-colors hover:text-[#E6EDF3]"
+                    className="text-sm text-[#656D76] transition-colors select-none hover:text-[#E6EDF3]"
                   >
                     {item.label}
                   </Link>
@@ -124,7 +130,8 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-[#2D333B] pt-8 md:flex-row">
           <p className="text-xs text-[#444C56]">
-            &copy; {new Date().getFullYear()} FerroLink Tools. All rights reserved.
+            &copy; {new Date().getFullYear()} FerroLink Tools. All rights
+            reserved.
           </p>
           <p className="text-xs text-[#444C56]">
             Forged with precision in Taiwan

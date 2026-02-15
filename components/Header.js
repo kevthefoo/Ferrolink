@@ -46,7 +46,7 @@ export default function Header({ currentPage = "home" }) {
         {/* Logo */}
         <Link
           href="/"
-          className={`group -my-6 flex items-center py-2${
+          className={`group -my-6 flex items-center select-none py-2${
             isMobileMenuOpen ? "invisible md:visible" : ""
           }`}
         >
@@ -70,7 +70,7 @@ export default function Header({ currentPage = "home" }) {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav className="hidden items-center gap-10 select-none md:flex">
           {navItems.map((item) => (
             <Link
               key={item.key}
@@ -102,7 +102,7 @@ export default function Header({ currentPage = "home" }) {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="relative z-10000 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="relative z-10000 flex h-10 w-10 flex-col items-center justify-center gap-1.5 select-none md:hidden"
           aria-label="Toggle menu"
         >
           <span

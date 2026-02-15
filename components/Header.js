@@ -41,29 +41,29 @@ export default function Header({ currentPage = "home" }) {
     >
       {/* Top bar */}
       <div
-        className={`mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8 ${scrolled && !isMobileMenuOpen ? "py-4" : "py-6"}`}
+        className={`mx-auto flex max-w-7xl items-stretch justify-between px-6 py-6 lg:px-8 ${scrolled && !isMobileMenuOpen ? "py-4" : "py-6"}`}
       >
         {/* Logo */}
         <Link
           href="/"
-          className={`group flex items-start justify-center gap-1${
+          className={`group -my-6 flex items-center py-2${
             isMobileMenuOpen ? "invisible md:visible" : ""
           }`}
         >
-          <div className="relative flex h-10 w-10 items-center justify-center">
+          <div className="relative flex h-full items-center justify-center">
             <Image
               src="/assets/logo/ferrolink-logo.png"
               alt="FerroLink"
-              width={40}
-              height={40}
-              className="rounded-sm object-contain"
+              width={60}
+              height={60}
+              className="h-full w-auto rounded-sm object-contain"
             />
           </div>
           <div className="flex flex-col">
             <span className="font-display text-2xl leading-none text-[#E6EDF3] transition-colors group-hover:text-[#E8530E]">
               FERROLINK
             </span>
-            <span className="tracking-luxury text-[9px] font-medium text-[#656D76]">
+            <span className="tracking-luxury text-[9px] font-medium text-nowrap text-[#656D76]">
               INDUSTRIAL TOOLS
             </span>
           </div>

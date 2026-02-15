@@ -12,8 +12,8 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3">
             <div className="mb-8 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-sm">
-                <Image src="/assets/logo/ferrolink-logo.png" alt="FerroLink" width={40} height={40} className="rounded-sm object-contain" />
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm">
+                <Image src="/assets/logo/ferrolink-logo.png" alt="FerroLink" width={56} height={56} className="h-full w-auto rounded-sm object-contain" />
               </div>
               <div>
                 <span className="font-display text-2xl text-[#E6EDF3]">

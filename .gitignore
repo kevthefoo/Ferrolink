@@ -40,5 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Claude
+.claude/
+
+# Playwright
+.playwright-mcp/
+
 # to-do list
 zzz.txt

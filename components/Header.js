@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header({ currentPage = "home" }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -45,13 +46,18 @@ export default function Header({ currentPage = "home" }) {
         {/* Logo */}
         <Link
           href="/"
-          className={`group flex items-center gap-3 ${
+          className={`group flex items-start justify-center gap-1${
             isMobileMenuOpen ? "invisible md:visible" : ""
           }`}
         >
           <div className="relative flex h-10 w-10 items-center justify-center">
-            <div className="copper-gradient absolute inset-0 rounded-sm opacity-90 transition-opacity group-hover:opacity-100" />
-            <span className="font-display relative text-2xl text-white">F</span>
+            <Image
+              src="/assets/logo/ferrolink-logo.png"
+              alt="FerroLink"
+              width={40}
+              height={40}
+              className="rounded-sm object-contain"
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-display text-2xl leading-none text-[#E6EDF3] transition-colors group-hover:text-[#E8530E]">

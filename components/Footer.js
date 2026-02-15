@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -11,8 +12,8 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3">
             <div className="mb-8 flex items-center gap-3">
-              <div className="copper-gradient flex h-10 w-10 items-center justify-center rounded-sm">
-                <span className="font-display text-2xl text-white">F</span>
+              <div className="flex h-10 w-10 items-center justify-center rounded-sm">
+                <Image src="/assets/logo/ferrolink-logo.png" alt="FerroLink" width={40} height={40} className="rounded-sm object-contain" />
               </div>
               <div>
                 <span className="font-display text-2xl text-[#E6EDF3]">

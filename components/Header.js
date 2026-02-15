@@ -30,7 +30,7 @@ export default function Header({ currentPage = "home" }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[10001] transition-all duration-500 ${
+      className={`fixed top-0 right-0 left-0 z-[10001] transition-all duration-500 ${
         isMobileMenuOpen
           ? "bottom-0 bg-[#0B0F14]"
           : scrolled
@@ -39,7 +39,9 @@ export default function Header({ currentPage = "home" }) {
       }`}
     >
       {/* Top bar */}
-      <div className={`mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8 ${scrolled && !isMobileMenuOpen ? "py-4" : "py-6"}`}>
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8 ${scrolled && !isMobileMenuOpen ? "py-4" : "py-6"}`}
+      >
         {/* Logo */}
         <Link
           href="/"
@@ -94,12 +96,12 @@ export default function Header({ currentPage = "home" }) {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="relative z-10000 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
           aria-label="Toggle menu"
         >
           <span
             className={`h-[1.5px] w-6 bg-[#9BA4AE] transition-all duration-300 ${
-              isMobileMenuOpen ? "translate-y-[4.5px] rotate-45 bg-[#E8530E]" : ""
+              isMobileMenuOpen ? "translate-y-[7px] rotate-45 bg-[#E8530E]" : ""
             }`}
           />
           <span
@@ -109,7 +111,9 @@ export default function Header({ currentPage = "home" }) {
           />
           <span
             className={`h-[1.5px] w-6 bg-[#9BA4AE] transition-all duration-300 ${
-              isMobileMenuOpen ? "-translate-y-[4.5px] -rotate-45 bg-[#E8530E]" : ""
+              isMobileMenuOpen
+                ? "-translate-y-[7px] -rotate-45 bg-[#E8530E]"
+                : ""
             }`}
           />
         </button>

@@ -56,7 +56,7 @@ export default function About() {
             <p className="tracking-luxury mb-6 text-[10px] font-semibold uppercase text-[#E8530E]">
               Our Heritage
             </p>
-            <h1 className="font-display mb-6 text-5xl uppercase text-[#E6EDF3] md:text-7xl">
+            <h1 className="font-display mb-6 text-4xl uppercase text-[#E6EDF3] sm:text-5xl md:text-7xl">
               About FerroLink Tools
             </h1>
             <div className="copper-line mx-auto mb-8 w-24" />
@@ -71,7 +71,7 @@ export default function About() {
       {/* Our Story Section */}
       <section className="relative bg-[#111820] py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
+          <div className="grid grid-cols-1 items-start gap-10 sm:gap-16 lg:grid-cols-2">
             {/* Story Text */}
             <div>
               <p className="tracking-luxury mb-4 text-[10px] font-semibold uppercase text-[#E8530E]">
@@ -103,7 +103,7 @@ export default function About() {
             </div>
 
             {/* Company Milestones */}
-            <div className="card-dark rounded-sm border border-[#2D333B] p-8">
+            <div className="card-dark rounded-sm border border-[#2D333B] p-5 sm:p-8">
               <p className="tracking-luxury mb-2 text-[10px] font-semibold uppercase text-[#E8530E]">
                 Timeline
               </p>
@@ -172,7 +172,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {/* Precision */}
-            <div className="card-dark group rounded-sm border border-[#2D333B] p-8 text-center transition-all duration-500 hover:border-[#E8530E]/30">
+            <div className="card-dark group rounded-sm border border-[#2D333B] p-5 text-center transition-all duration-500 hover:border-[#E8530E]/30 sm:p-8">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#2D333B] transition-colors group-hover:border-[#E8530E]/50">
                 <svg
                   className="h-7 w-7 text-[#E8530E]"
@@ -200,7 +200,7 @@ export default function About() {
             </div>
 
             {/* Durability */}
-            <div className="card-dark group rounded-sm border border-[#2D333B] p-8 text-center transition-all duration-500 hover:border-[#E8530E]/30">
+            <div className="card-dark group rounded-sm border border-[#2D333B] p-5 text-center transition-all duration-500 hover:border-[#E8530E]/30 sm:p-8">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#2D333B] transition-colors group-hover:border-[#E8530E]/50">
                 <svg
                   className="h-7 w-7 text-[#E8530E]"
@@ -226,7 +226,7 @@ export default function About() {
             </div>
 
             {/* Innovation */}
-            <div className="card-dark group rounded-sm border border-[#2D333B] p-8 text-center transition-all duration-500 hover:border-[#E8530E]/30">
+            <div className="card-dark group rounded-sm border border-[#2D333B] p-5 text-center transition-all duration-500 hover:border-[#E8530E]/30 sm:p-8">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#2D333B] transition-colors group-hover:border-[#E8530E]/50">
                 <svg
                   className="h-7 w-7 text-[#E8530E]"
@@ -291,7 +291,7 @@ export default function About() {
             ].map((member, index) => (
               <div
                 key={index}
-                className="card-dark group rounded-sm border border-[#2D333B] p-8 text-center transition-all duration-500 hover:border-[#E8530E]/30"
+                className="card-dark group rounded-sm border border-[#2D333B] p-5 text-center transition-all duration-500 hover:border-[#E8530E]/30 sm:p-8"
               >
                 <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#2D333B] bg-[#161D26] transition-colors group-hover:border-[#E8530E]/40">
                   <span className="font-display text-xl tracking-wider text-[#656D76] transition-colors group-hover:text-[#E8530E]">
@@ -317,7 +317,7 @@ export default function About() {
       <section className="relative bg-[#0B0F14] py-24">
         <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+          <div className="grid grid-cols-1 items-center gap-10 sm:gap-16 lg:grid-cols-2">
             <div>
               <p className="tracking-luxury mb-4 text-[10px] font-semibold uppercase text-[#E8530E]">
                 World-Class Facility
@@ -359,7 +359,7 @@ export default function About() {
             </div>
 
             {/* Stats Grid */}
-            <div className="card-dark rounded-sm border border-[#2D333B] p-8">
+            <div className="card-dark rounded-sm border border-[#2D333B] p-5 sm:p-8">
               <p className="tracking-luxury mb-2 text-[10px] font-semibold uppercase text-[#E8530E]">
                 By the Numbers
               </p>
@@ -486,7 +486,7 @@ export default function About() {
             ].map((cert, index) => (
               <div
                 key={index}
-                className="card-dark group rounded-sm border border-[#2D333B] p-6 text-center transition-all duration-500 hover:border-[#E8530E]/30"
+                className="card-dark group rounded-sm border border-[#2D333B] p-4 text-center transition-all duration-500 hover:border-[#E8530E]/30 sm:p-6"
               >
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-[#2D333B] transition-colors group-hover:border-[#E8530E]/50">
                   {cert.icon}

@@ -80,57 +80,69 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 flex min-h-screen items-center">
-          <div className="mx-auto max-w-7xl px-6 py-32 lg:px-8 w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="mx-auto w-full max-w-7xl px-6 py-32 lg:px-8">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
               {/* Left side - Text content */}
               <div>
                 {/* Industrial badge */}
-                <div className="mb-8 animate-fade-in-up opacity-0">
+                <div className="animate-fade-in-up mb-8 opacity-0">
                   <span className="inline-flex items-center gap-3 border-l-4 border-[#E8530E] bg-[#E8530E]/10 px-5 py-2.5 text-[11px] font-bold tracking-[0.2em] text-[#E8530E] uppercase backdrop-blur-sm">
-                    <span className="h-2 w-2 rounded-full bg-[#E8530E] animate-pulse" />
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-[#E8530E]" />
                     Precision Engineered Since 1999
                   </span>
                 </div>
 
                 {/* Main heading */}
                 <h1 className="animate-fade-in-up mb-6 opacity-0 delay-100">
-                  <span className="sr-only">FerroLink Industrial Grade Tools - Professional Hand Tools & CNC Equipment Manufacturer in Taiwan</span>
-                  <span className="font-display block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85] text-white" aria-hidden="true">
+                  <span className="sr-only">
+                    FerroLink Industrial Grade Tools - Professional Hand Tools &
+                    CNC Equipment Manufacturer in Taiwan
+                  </span>
+                  <span
+                    className="font-display block text-[clamp(2.5rem,7vw,6.5rem)] leading-[0.85] text-white"
+                    aria-hidden="true"
+                  >
                     INDUSTRIAL
                   </span>
-                  <span className="font-display block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85] text-white" aria-hidden="true">
+                  <span
+                    className="font-display block text-[clamp(2.5rem,7vw,6.5rem)] leading-[0.85] text-white"
+                    aria-hidden="true"
+                  >
                     GRADE
                   </span>
-                  <span className="font-display accent-text block text-[clamp(3rem,7vw,6.5rem)] leading-[0.85]" aria-hidden="true">
+                  <span
+                    className="font-display accent-text block text-[clamp(2.5rem,7vw,6.5rem)] leading-[0.85]"
+                    aria-hidden="true"
+                  >
                     TOOLS
                   </span>
                 </h1>
 
                 {/* Accent bar */}
-                <div className="mb-8 flex items-center gap-4 animate-fade-in-up opacity-0 delay-200">
-                  <div className="h-[3px] w-20 bg-[#E8530E] animate-expand-width" />
+                <div className="animate-fade-in-up mb-8 flex items-center gap-4 opacity-0 delay-200">
+                  <div className="animate-expand-width h-[3px] w-20 bg-[#E8530E]" />
                   <div className="h-[3px] w-8 bg-[#E8530E]/40" />
                   <div className="h-[3px] w-4 bg-[#E8530E]/20" />
                 </div>
 
                 {/* Subtext */}
-                <p className="mb-10 max-w-lg animate-fade-in-up text-lg leading-relaxed text-[#9BA4AE] opacity-0 delay-300">
-                  From CNC cutting tools to heavy-duty hammers and axes.
-                  Built for professionals who demand uncompromising performance
-                  and reliability on every job site.
+                <p className="animate-fade-in-up mb-10 max-w-lg text-lg leading-relaxed text-[#9BA4AE] opacity-0 delay-300">
+                  From CNC cutting tools to heavy-duty hammers and axes. Built
+                  for professionals who demand uncompromising performance and
+                  reliability on every job site.
                 </p>
 
                 {/* CTAs */}
-                <div className="flex flex-col gap-4 animate-fade-in-up opacity-0 delay-400 sm:flex-row">
+                <div className="animate-fade-in-up flex flex-col gap-4 opacity-0 delay-400 sm:flex-row">
                   <Link
                     href="/products"
-                    className="btn-copper rounded-sm px-10 py-4 text-center text-[12px] tracking-[0.15em] uppercase"
+                    className="btn-copper rounded-sm px-7 py-3.5 text-center text-[12px] tracking-[0.15em] uppercase sm:px-10 sm:py-4"
                   >
                     Explore Catalog
                   </Link>
                   <Link
                     href="/contact"
-                    className="btn-outline rounded-sm px-10 py-4 text-center text-[12px] tracking-[0.15em] uppercase backdrop-blur-sm"
+                    className="btn-outline rounded-sm px-7 py-3.5 text-center text-[12px] tracking-[0.15em] uppercase backdrop-blur-sm sm:px-10 sm:py-4"
                   >
                     Request Quote
                   </Link>
@@ -138,7 +150,7 @@ export default function Home() {
               </div>
 
               {/* Right side - Featured image showcase */}
-              <div className="relative hidden lg:flex items-center justify-center animate-fade-in-up opacity-0 delay-300">
+              <div className="animate-fade-in-up relative hidden items-center justify-center opacity-0 delay-300 lg:flex">
                 <div className="relative">
                   {/* Decorative border frame */}
                   <div className="absolute -inset-4 rounded-sm border border-[#E8530E]/20" />
@@ -148,7 +160,7 @@ export default function Home() {
                   <div className="absolute -top-8 -left-8 h-6 w-6 border-t-2 border-l-2 border-[#E8530E]" />
                   <div className="absolute -top-8 -right-8 h-6 w-6 border-t-2 border-r-2 border-[#E8530E]" />
                   <div className="absolute -bottom-8 -left-8 h-6 w-6 border-b-2 border-l-2 border-[#E8530E]" />
-                  <div className="absolute -bottom-8 -right-8 h-6 w-6 border-b-2 border-r-2 border-[#E8530E]" />
+                  <div className="absolute -right-8 -bottom-8 h-6 w-6 border-r-2 border-b-2 border-[#E8530E]" />
 
                   {/* Main image */}
                   <div className="relative h-[450px] w-[450px] overflow-hidden rounded-sm">
@@ -164,7 +176,9 @@ export default function Home() {
 
                   {/* Floating accent badge */}
                   <div className="absolute -bottom-6 -left-6 rounded-sm border border-[#2D333B] bg-[#161D26]/95 px-5 py-3 backdrop-blur-sm">
-                    <div className="text-[10px] font-semibold tracking-wider text-[#E8530E] uppercase">Trusted by</div>
+                    <div className="text-[10px] font-semibold tracking-wider text-[#E8530E] uppercase">
+                      Trusted by
+                    </div>
                     <div className="font-display text-2xl text-white">
                       <AnimatedCounter value="50" suffix="+" /> Countries
                     </div>
@@ -172,32 +186,65 @@ export default function Home() {
 
                   {/* Floating accent badge top-right */}
                   <div className="absolute -top-6 -right-6 rounded-sm border border-[#2D333B] bg-[#161D26]/95 px-5 py-3 backdrop-blur-sm">
-                    <div className="text-[10px] font-semibold tracking-wider text-[#E8530E] uppercase">Since</div>
+                    <div className="text-[10px] font-semibold tracking-wider text-[#E8530E] uppercase">
+                      Since
+                    </div>
                     <div className="font-display text-2xl text-white">1999</div>
                   </div>
 
                   {/* Glow effect */}
-                  <div className="absolute -inset-12 -z-10 bg-[#E8530E]/5 blur-3xl rounded-full" />
+                  <div className="absolute -inset-12 -z-10 rounded-full bg-[#E8530E]/5 blur-3xl" />
                 </div>
               </div>
             </div>
 
             {/* Stats row - full width below both columns */}
-            <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-0 animate-fade-in-up opacity-0 delay-500 rounded-sm border border-[#2D333B] bg-[#0B0F14]/80 backdrop-blur-md overflow-hidden">
+            <div className="animate-fade-in-up mt-12 grid grid-cols-1 gap-0 overflow-hidden rounded-sm border border-[#2D333B] bg-[#0B0F14]/80 opacity-0 backdrop-blur-md delay-500 sm:mt-20 sm:grid-cols-3">
               {[
-                { value: "25", suffix: "+", label: "Years Experience", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
-                { value: "1000", suffix: "+", label: "Products", icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" },
-                { value: "50", suffix: "+", label: "Countries", icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+                {
+                  value: "25",
+                  suffix: "+",
+                  label: "Years Experience",
+                  icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+                },
+                {
+                  value: "1000",
+                  suffix: "+",
+                  label: "Products",
+                  icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
+                },
+                {
+                  value: "50",
+                  suffix: "+",
+                  label: "Countries",
+                  icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+                },
               ].map((stat, i) => (
-                <div key={stat.label} className={`flex items-center gap-4 px-8 py-6 ${i < 2 ? "sm:border-r border-b sm:border-b-0 border-[#2D333B]" : ""}`}>
-                  <svg className="h-6 w-6 flex-shrink-0 text-[#E8530E]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d={stat.icon} />
+                <div
+                  key={stat.label}
+                  className={`flex items-center gap-3 px-5 py-4 sm:gap-4 sm:px-8 sm:py-6 ${i < 2 ? "border-b border-[#2D333B] sm:border-r sm:border-b-0" : ""}`}
+                >
+                  <svg
+                    className="h-6 w-6 flex-shrink-0 text-[#E8530E]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d={stat.icon}
+                    />
                   </svg>
                   <div>
                     <div className="font-display text-3xl text-white">
-                      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                      <AnimatedCounter
+                        value={stat.value}
+                        suffix={stat.suffix}
+                      />
                     </div>
-                    <div className="text-[10px] text-[#656D76] uppercase tracking-wider">
+                    <div className="text-[10px] tracking-wider text-[#656D76] uppercase">
                       {stat.label}
                     </div>
                   </div>
@@ -208,14 +255,16 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce-slow">
-          <span className="text-[9px] tracking-[0.3em] text-[#656D76] uppercase">Scroll</span>
+        <div className="animate-bounce-slow absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2">
+          <span className="text-[9px] tracking-[0.3em] text-[#656D76] uppercase">
+            Scroll
+          </span>
           <div className="h-10 w-[1px] bg-gradient-to-b from-[#E8530E] to-transparent" />
         </div>
       </section>
 
       {/* ═══ PRODUCT CATEGORIES ═══ */}
-      <section className="relative border-t border-[#2D333B] bg-[#111820] py-28">
+      <section className="relative border-t border-[#2D333B] bg-[#111820] py-16 sm:py-28">
         <div className="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-[#E8530E] via-transparent to-transparent" />
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -229,13 +278,13 @@ export default function Home() {
               </h2>
               <div className="copper-line-left mb-6 w-16" />
               <p className="text-sm leading-relaxed text-[#656D76]">
-                Professional-grade tools engineered for durability, precision, and
-                performance in demanding environments.
+                Professional-grade tools engineered for durability, precision,
+                and performance in demanding environments.
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-5">
             {Object.entries(categories).map(([categoryId, category], index) => {
               const categoryProducts = getProductsByCategory(categoryId);
               const sampleProduct = Object.values(categoryProducts)[0];
@@ -285,10 +334,20 @@ export default function Home() {
                         <span className="text-xs text-[#444C56]">
                           {Object.keys(categoryProducts).length} products
                         </span>
-                        <span className="flex items-center gap-1 text-[10px] font-semibold tracking-wider text-[#E8530E] uppercase transition-all group-hover:text-[#FF7A33] group-hover:gap-2">
+                        <span className="flex items-center gap-1 text-[10px] font-semibold tracking-wider text-[#E8530E] uppercase transition-all group-hover:gap-2 group-hover:text-[#FF7A33]">
                           Explore
-                          <svg className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                          <svg
+                            className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M9 5l7 7-7 7"
+                            />
                           </svg>
                         </span>
                       </div>
@@ -305,7 +364,10 @@ export default function Home() {
       <section className="relative overflow-hidden py-0">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Image side */}
-          <ScrollReveal animation="fade-right" className="relative h-[500px] lg:h-auto">
+          <ScrollReveal
+            animation="fade-right"
+            className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto"
+          >
             <Image
               src="/assets/materials/cnc.png"
               alt="FerroLink CNC manufacturing equipment - precision engineering facility"
@@ -317,14 +379,16 @@ export default function Home() {
           </ScrollReveal>
 
           {/* Content side */}
-          <div className="flex items-center bg-[#0B0F14] py-20 px-8 lg:px-16">
+          <div className="flex items-center bg-[#0B0F14] px-5 py-12 sm:px-8 sm:py-16 lg:px-16 lg:py-20">
             <div>
               <ScrollReveal animation="fade-left">
                 <span className="tracking-luxury mb-4 block text-[10px] font-semibold text-[#E8530E] uppercase">
                   Why FerroLink
                 </span>
                 <h2 className="font-display mb-4 text-4xl text-[#E6EDF3] md:text-5xl">
-                  ENGINEERED FOR<br />EXCELLENCE
+                  ENGINEERED FOR
+                  <br />
+                  EXCELLENCE
                 </h2>
                 <div className="copper-line-left mb-8 w-16" />
                 <p className="mb-10 text-sm leading-relaxed text-[#9BA4AE]">
@@ -352,11 +416,25 @@ export default function Home() {
                     icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
                   },
                 ].map((feature, index) => (
-                  <ScrollReveal key={feature.title} animation="fade-left" delay={index * 150}>
+                  <ScrollReveal
+                    key={feature.title}
+                    animation="fade-left"
+                    delay={index * 150}
+                  >
                     <div className="group flex items-start gap-4">
                       <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-sm border border-[#2D333B] bg-[#161D26] text-[#E8530E] transition-all duration-300 group-hover:border-[#E8530E]/50 group-hover:bg-[#E8530E]/10 group-hover:shadow-[0_0_20px_rgba(232,83,14,0.15)]">
-                        <svg className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d={feature.icon} />
+                        <svg
+                          className="h-5 w-5 transition-transform duration-300 group-hover:scale-110"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d={feature.icon}
+                          />
                         </svg>
                       </div>
                       <div>
@@ -377,9 +455,9 @@ export default function Home() {
       </section>
 
       {/* ═══ ABOUT SNAPSHOT ═══ */}
-      <section className="relative border-t border-[#2D333B] bg-[#111820] py-28">
+      <section className="relative border-t border-[#2D333B] bg-[#111820] py-16 sm:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+          <div className="grid grid-cols-1 items-center gap-10 sm:gap-16 lg:grid-cols-2">
             <ScrollReveal animation="fade-right">
               <div>
                 <span className="tracking-luxury mb-4 block text-[10px] font-semibold text-[#E8530E] uppercase">
@@ -392,13 +470,14 @@ export default function Home() {
                 <p className="mb-6 text-sm leading-relaxed text-[#9BA4AE]">
                   Founded on the principle that quality tools are essential for
                   quality work, FerroLink Tools has become a trusted name in the
-                  hand tools industry. We specialize in CNC tools and traditional
-                  hand tools including hammers, axes, and garden implements.
+                  hand tools industry. We specialize in CNC tools and
+                  traditional hand tools including hammers, axes, and garden
+                  implements.
                 </p>
                 <p className="mb-8 text-sm leading-relaxed text-[#656D76]">
-                  Our commitment to excellence drives us to continuously innovate
-                  while maintaining the craftsmanship traditions that have made our
-                  tools the choice of professionals worldwide.
+                  Our commitment to excellence drives us to continuously
+                  innovate while maintaining the craftsmanship traditions that
+                  have made our tools the choice of professionals worldwide.
                 </p>
                 <Link
                   href="/about"
@@ -422,7 +501,10 @@ export default function Home() {
                     "Commercial Garden & Landscaping Tools",
                     "Custom Tool Solutions",
                   ].map((item, index) => (
-                    <li key={item} className="group flex items-center gap-3 text-sm text-[#9BA4AE] transition-colors duration-300 hover:text-[#E6EDF3]">
+                    <li
+                      key={item}
+                      className="group flex items-center gap-3 text-sm text-[#9BA4AE] transition-colors duration-300 hover:text-[#E6EDF3]"
+                    >
                       <span className="h-2 w-2 rounded-full bg-[#E8530E] transition-all duration-300 group-hover:shadow-[0_0_8px_rgba(232,83,14,0.6)]" />
                       {item}
                     </li>
@@ -435,7 +517,7 @@ export default function Home() {
       </section>
 
       {/* ═══ CONTACT + QUOTE ═══ */}
-      <section className="relative py-28">
+      <section className="relative py-16 sm:py-28">
         <div className="crosshatch absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal animation="fade-up">
@@ -448,8 +530,8 @@ export default function Home() {
               </h2>
               <div className="copper-line mx-auto mb-6 w-16" />
               <p className="mx-auto max-w-xl text-sm leading-relaxed text-[#656D76]">
-                Ready to upgrade your toolkit? Contact us for product information,
-                custom solutions, or bulk orders.
+                Ready to upgrade your toolkit? Contact us for product
+                information, custom solutions, or bulk orders.
               </p>
             </div>
           </ScrollReveal>
@@ -472,18 +554,34 @@ export default function Home() {
                 icon: "M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z",
               },
             ].map((contact, index) => (
-              <ScrollReveal key={contact.label} animation="fade-up" delay={index * 100}>
+              <ScrollReveal
+                key={contact.label}
+                animation="fade-up"
+                delay={index * 100}
+              >
                 <div className="card-dark group flex items-center gap-4 rounded-sm p-6">
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-sm border border-[#2D333B] text-[#E8530E] transition-all duration-300 group-hover:border-[#E8530E]/50 group-hover:bg-[#E8530E]/10 group-hover:shadow-[0_0_15px_rgba(232,83,14,0.15)]">
-                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d={contact.icon} />
+                    <svg
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d={contact.icon}
+                      />
                     </svg>
                   </div>
                   <div>
-                    <div className="text-xs font-semibold text-[#656D76] uppercase tracking-wider">
+                    <div className="text-xs font-semibold tracking-wider text-[#656D76] uppercase">
                       {contact.label}
                     </div>
-                    <div className="text-sm text-[#E6EDF3]">{contact.value}</div>
+                    <div className="text-sm text-[#E6EDF3]">
+                      {contact.value}
+                    </div>
                   </div>
                 </div>
               </ScrollReveal>

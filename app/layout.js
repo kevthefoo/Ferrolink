@@ -66,7 +66,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${bebasNeue.variable} ${libreFranklin.variable} noise-overlay antialiased`}
+        className={`${bebasNeue.variable} ${libreFranklin.variable} noise-overlay antialiased border-2 border-white`}
       >
         <script
           type="application/ld+json"

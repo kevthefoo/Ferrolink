@@ -30,15 +30,23 @@ export default function Header({ currentPage = "home" }) {
 
   return (
     <header
-      className={`fixed top-0 z-[9000] w-full transition-all duration-500 ${
-        scrolled
-          ? "border-b border-[#2D333B] bg-[#0B0F14]/95 py-4 backdrop-blur-xl"
-          : "bg-transparent py-6"
+      className={`fixed top-0 left-0 right-0 z-[10001] transition-all duration-500 ${
+        isMobileMenuOpen
+          ? "bottom-0 bg-[#0B0F14]"
+          : scrolled
+            ? "border-b border-[#2D333B] bg-[#0B0F14]/95 backdrop-blur-xl"
+            : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
+      {/* Top bar */}
+      <div className={`mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8 ${scrolled && !isMobileMenuOpen ? "py-4" : "py-6"}`}>
         {/* Logo */}
-        <Link href="/" className="group flex items-center gap-3">
+        <Link
+          href="/"
+          className={`group flex items-center gap-3 ${
+            isMobileMenuOpen ? "invisible md:visible" : ""
+          }`}
+        >
           <div className="relative flex h-10 w-10 items-center justify-center">
             <div className="copper-gradient absolute inset-0 rounded-sm opacity-90 transition-opacity group-hover:opacity-100" />
             <span className="font-display relative text-2xl text-white">F</span>
@@ -86,7 +94,7 @@ export default function Header({ currentPage = "home" }) {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
           aria-label="Toggle menu"
         >
           <span
@@ -107,48 +115,32 @@ export default function Header({ currentPage = "home" }) {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`fixed inset-0 top-0 z-40 bg-[#0B0F14]/98 backdrop-blur-xl transition-all duration-500 md:hidden ${
-          isMobileMenuOpen
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
-        }`}
-      >
-        <div className="flex h-full flex-col items-center justify-center gap-8">
-          {navItems.map((item, i) => (
-            <Link
-              key={item.key}
-              href={item.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`font-display text-5xl transition-all duration-300 ${
-                currentPage === item.key
-                  ? "accent-text"
-                  : "text-[#E6EDF3] hover:text-[#E8530E]"
-              }`}
-              style={{
-                transitionDelay: isMobileMenuOpen ? `${i * 80}ms` : "0ms",
-                transform: isMobileMenuOpen ? "translateY(0)" : "translateY(20px)",
-                opacity: isMobileMenuOpen ? 1 : 0,
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
+      {/* Mobile Menu — lives inside the header, fills remaining space */}
+      {isMobileMenuOpen && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center md:hidden">
+          <div className="flex flex-col items-center gap-5 sm:gap-8">
+            {navItems.map((item, i) => (
+              <Link
+                key={item.key}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`font-display text-3xl sm:text-4xl md:text-5xl ${
+                  currentPage === item.key
+                    ? "accent-text"
+                    : "text-[#E6EDF3] hover:text-[#E8530E]"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
 
-          <div
-            className="mt-4 flex flex-col items-center gap-3 text-sm text-[#656D76]"
-            style={{
-              transitionDelay: isMobileMenuOpen ? "400ms" : "0ms",
-              opacity: isMobileMenuOpen ? 1 : 0,
-              transition: "opacity 0.5s ease",
-            }}
-          >
-            <span>+886 47766093</span>
-            <span>support@ferrolink.io</span>
+            <div className="mt-4 flex flex-col items-center gap-3 text-sm text-[#656D76]">
+              <span>+886 47766093</span>
+              <span>support@ferrolink.io</span>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

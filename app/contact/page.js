@@ -67,7 +67,7 @@ export default function Contact() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             {/* Contact Form */}
-            <div className="card-dark rounded-sm border border-[#2D333B] p-8 lg:p-10">
+            <div className="card-dark rounded-sm border border-[#2D333B] p-5 sm:p-8 lg:p-10">
               <p className="tracking-luxury mb-2 text-[10px] font-semibold uppercase text-[#E8530E]">
                 Send a Message
               </p>
@@ -288,7 +288,7 @@ export default function Contact() {
             {/* Contact Information */}
             <div className="space-y-8">
               {/* Contact Methods Card */}
-              <div className="card-dark rounded-sm border border-[#2D333B] p-8">
+              <div className="card-dark rounded-sm border border-[#2D333B] p-5 sm:p-8">
                 <p className="tracking-luxury mb-2 text-[10px] font-semibold uppercase text-[#E8530E]">
                   Reach Us
                 </p>
@@ -400,7 +400,7 @@ export default function Contact() {
               </div>
 
               {/* Department Contacts Card */}
-              <div className="card-dark rounded-sm border border-[#2D333B] p-8">
+              <div className="card-dark rounded-sm border border-[#2D333B] p-5 sm:p-8">
                 <p className="tracking-luxury mb-2 text-[10px] font-semibold uppercase text-[#E8530E]">
                   Direct Lines
                 </p>
@@ -491,7 +491,7 @@ export default function Contact() {
                 key={index}
                 className="group rounded-sm border border-[#2D333B] bg-[#161D26] transition-all duration-300 hover:border-[#E8530E]/30"
               >
-                <summary className="flex cursor-pointer items-center justify-between p-6 text-sm font-semibold text-[#E6EDF3]">
+                <summary className="flex cursor-pointer items-center justify-between p-4 text-sm font-semibold text-[#E6EDF3] sm:p-6">
                   {faq.question}
                   <svg
                     className="h-5 w-5 flex-shrink-0 text-[#E8530E] transition-transform duration-300 group-open:rotate-180"
@@ -507,7 +507,7 @@ export default function Contact() {
                     />
                   </svg>
                 </summary>
-                <div className="border-t border-[#2D333B] px-6 pb-6 pt-4">
+                <div className="border-t border-[#2D333B] px-4 pb-4 pt-3 sm:px-6 sm:pb-6 sm:pt-4">
                   <p className="text-sm leading-relaxed text-[#9BA4AE]">
                     {faq.answer}
                   </p>
@@ -521,8 +521,8 @@ export default function Contact() {
       {/* Map Section */}
       <section className="relative pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="card-dark rounded-sm border border-[#2D333B] p-8">
-            <div className="mb-8 text-center">
+          <div className="card-dark rounded-sm border border-[#2D333B] p-4 sm:p-8">
+            <div className="mb-6 text-center sm:mb-8">
               <p className="tracking-luxury mb-2 text-[10px] font-semibold uppercase text-[#E8530E]">
                 Our Location
               </p>
@@ -530,7 +530,7 @@ export default function Contact() {
                 VISIT OUR FACILITY
               </h2>
             </div>
-            <div className="h-96 overflow-hidden rounded-sm border border-[#2D333B]">
+            <div className="h-64 overflow-hidden rounded-sm border border-[#2D333B] sm:h-80 md:h-96">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196107.04521537392!2d120.32786123197343!3d24.033327734950394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34694f514896288f%3A0x9ec50566023e74d0!2z6YeR5ZKM6IyC5bel5qWt6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1sen!2sau!4v1759752835462!5m2!1sen!2sau"
                 allowFullScreen

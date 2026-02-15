@@ -8,7 +8,7 @@ export default function BlogCard({ post }) {
       className="card-dark group overflow-hidden rounded-sm border border-[#2D333B] transition-all duration-500 hover:border-[#E8530E]/30"
     >
       {/* Image */}
-      <div className="relative h-52 w-full overflow-hidden bg-[#161D26]">
+      <div className="relative h-40 w-full overflow-hidden bg-[#161D26] sm:h-52">
         {post.image ? (
           <Image
             src={post.image}
@@ -38,7 +38,7 @@ export default function BlogCard({ post }) {
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Meta */}
         <div className="mb-3 flex items-center gap-3">
           <span className="tracking-luxury rounded-sm border border-[#2D333B] bg-[#1C2430] px-2.5 py-1 text-[9px] font-semibold text-[#E8530E] uppercase">

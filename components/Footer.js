@@ -6,10 +6,10 @@ export default function Footer() {
       {/* Top accent line */}
       <div className="copper-line" />
 
-      <div className="mx-auto max-w-7xl px-6 pt-20 pb-12 lg:px-8">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-12">
+      <div className="mx-auto max-w-7xl px-5 pt-12 pb-10 sm:px-6 sm:pt-20 sm:pb-12 lg:px-8">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-12 md:gap-16">
           {/* Brand Column */}
-          <div className="md:col-span-3">
+          <div className="col-span-2 md:col-span-3">
             <div className="mb-8 flex items-center gap-3">
               <div className="copper-gradient flex h-10 w-10 items-center justify-center rounded-sm">
                 <span className="font-display text-2xl text-white">F</span>
@@ -102,7 +102,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="md:col-span-3">
+          <div className="col-span-2 md:col-span-3">
             <h5 className="tracking-luxury mb-6 text-[10px] font-semibold text-[#E8530E] uppercase">
               Contact
             </h5>

@@ -107,7 +107,7 @@ export default async function BlogPost({ params }) {
 
       <article className="mx-auto max-w-4xl px-4 pt-32 pb-16 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
-        <div className="mb-10 flex items-center gap-2 text-xs text-[#656D76]">
+        <div className="mb-10 flex flex-wrap items-center gap-1.5 text-xs text-[#656D76] sm:gap-2">
           <Link href="/" className="transition-colors hover:text-[#E8530E]">
             Home
           </Link>
@@ -128,7 +128,7 @@ export default async function BlogPost({ params }) {
             <span className="text-[10px] text-[#656D76]">{post.readTime}</span>
           </div>
 
-          <h1 className="font-display mb-6 text-4xl text-[#E6EDF3] md:text-5xl">
+          <h1 className="font-display mb-6 text-3xl text-[#E6EDF3] sm:text-4xl md:text-5xl">
             {post.title.toUpperCase()}
           </h1>
           <div className="copper-line-left mb-6 w-20" />

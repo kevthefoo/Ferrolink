@@ -88,7 +88,7 @@ export default async function CategoryPage({ params }) {
       />
       <Header currentPage="products" />
 
-      <div className="mx-auto max-w-7xl px-6 pt-32 pb-16 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-28 pb-16 sm:px-6 sm:pt-32 lg:px-8">
         {/* Breadcrumb */}
         <div className="mb-10 flex items-center gap-2 text-xs text-[#656D76]">
           <Link href="/" className="transition-colors hover:text-[#E8530E]">
@@ -107,7 +107,7 @@ export default async function CategoryPage({ params }) {
           <span className="tracking-luxury mb-4 block text-[10px] font-semibold text-[#E8530E] uppercase">
             Product Category
           </span>
-          <h1 className="font-display mb-4 text-5xl text-[#E6EDF3] md:text-6xl">
+          <h1 className="font-display mb-4 text-4xl text-[#E6EDF3] sm:text-5xl md:text-6xl">
             {category.name.toUpperCase()}
           </h1>
           <div className="copper-line-left mb-6 w-20" />
@@ -116,26 +116,26 @@ export default async function CategoryPage({ params }) {
           </p>
 
           {/* Stats bar */}
-          <div className="inline-flex items-center gap-8 rounded-sm border border-[#2D333B] bg-[#161D26] px-8 py-4">
+          <div className="flex flex-wrap items-center gap-4 rounded-sm border border-[#2D333B] bg-[#161D26] px-4 py-3 sm:inline-flex sm:gap-8 sm:px-8 sm:py-4">
             <div>
-              <div className="font-display text-2xl text-[#E8530E]">
+              <div className="font-display text-xl text-[#E8530E] sm:text-2xl">
                 {productList.length}
               </div>
-              <div className="text-xs text-[#656D76]">Products</div>
+              <div className="text-[10px] text-[#656D76] sm:text-xs">Products</div>
             </div>
-            <div className="h-8 w-[1px] bg-[#2D333B]" />
+            <div className="hidden h-8 w-[1px] bg-[#2D333B] sm:block" />
             <div>
-              <div className="font-display text-2xl text-[#E8530E]">
+              <div className="font-display text-xl text-[#E8530E] sm:text-2xl">
                 Professional
               </div>
-              <div className="text-xs text-[#656D76]">Grade Quality</div>
+              <div className="text-[10px] text-[#656D76] sm:text-xs">Grade Quality</div>
             </div>
-            <div className="h-8 w-[1px] bg-[#2D333B]" />
+            <div className="hidden h-8 w-[1px] bg-[#2D333B] sm:block" />
             <div>
-              <div className="font-display text-2xl text-[#E8530E]">
+              <div className="font-display text-xl text-[#E8530E] sm:text-2xl">
                 Industry
               </div>
-              <div className="text-xs text-[#656D76]">Leading Tools</div>
+              <div className="text-[10px] text-[#656D76] sm:text-xs">Leading Tools</div>
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@ export default async function CategoryPage({ params }) {
         <section className="mb-20">
           {productList.length > 0 ? (
             <>
-              <div className="mb-8 flex items-center justify-between">
+              <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <h2 className="font-display text-2xl text-[#E6EDF3]">
                   ALL {category.name.toUpperCase()} ({productList.length})
                 </h2>

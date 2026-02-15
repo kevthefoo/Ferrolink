@@ -35,7 +35,7 @@ const QuoteForm = () => {
   };
 
   return (
-    <div className="rounded-sm border border-[#2D333B] bg-[#161D26] p-8">
+    <div className="rounded-sm border border-[#2D333B] bg-[#161D26] p-5 sm:p-8">
       <h4 className="font-display mb-1 text-2xl text-[#E6EDF3]">
         REQUEST A QUOTE
       </h4>

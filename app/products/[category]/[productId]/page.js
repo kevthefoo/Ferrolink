@@ -116,9 +116,9 @@ export default async function ProductDetail({ params }) {
       />
       <Header currentPage="products" />
 
-      <div className="mx-auto max-w-7xl px-6 pt-32 pb-12 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-28 pb-12 sm:px-6 sm:pt-32 lg:px-8">
         {/* Breadcrumb */}
-        <div className="mb-10 flex items-center gap-2 text-xs text-[#656D76]">
+        <div className="mb-10 flex flex-wrap items-center gap-1.5 text-xs text-[#656D76] sm:gap-2">
           <Link href="/" className="transition-colors hover:text-[#E8530E]">
             Home
           </Link>
@@ -184,7 +184,7 @@ export default async function ProductDetail({ params }) {
               <span className="tracking-luxury mb-3 block text-[10px] font-semibold text-[#E8530E] uppercase">
                 {product.categoryName}
               </span>
-              <h1 className="font-display mb-2 text-4xl text-[#E6EDF3] md:text-5xl">
+              <h1 className="font-display mb-2 text-3xl text-[#E6EDF3] sm:text-4xl md:text-5xl">
                 {product.name.toUpperCase()}
               </h1>
               <div className="copper-line-left mb-6 w-16" />

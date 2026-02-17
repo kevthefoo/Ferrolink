@@ -302,8 +302,8 @@ export const blogPosts = [
   },
   {
     "slug": "crud-test-post",
-    "title": "CRUD Test Post",
-    "excerpt": "Testing CRUD operations",
+    "title": "CRUD Test Post - Updated",
+    "excerpt": "Updated excerpt",
     "date": "2026-02-17",
     "modifiedDate": "2026-02-17",
     "author": "FerroLink Tools",
@@ -315,16 +315,7 @@ export const blogPosts = [
     "content": [
       {
         "type": "paragraph",
-        "text": "This is a test paragraph."
-      },
-      {
-        "type": "heading",
-        "level": 2,
-        "text": "Test Heading"
-      },
-      {
-        "type": "paragraph",
-        "text": "Another paragraph for testing."
+        "text": "Updated paragraph content."
       }
     ]
   }

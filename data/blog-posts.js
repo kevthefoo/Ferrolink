@@ -299,25 +299,6 @@ export const blogPosts = [
         "text": "Regardless of material, proper maintenance extends handle life. For wood handles, apply linseed oil periodically and store tools in dry conditions. Check fiberglass handles for delamination or cracks regularly. Inspect steel handles for rust and ensure grip wraps remain secure. Replace any handle showing signs of damage immediately, as a failed handle during use can cause serious injury."
       }
     ]
-  },
-  {
-    "slug": "crud-test-post",
-    "title": "CRUD Test Post - Updated",
-    "excerpt": "Updated excerpt",
-    "date": "2026-02-17",
-    "modifiedDate": "2026-02-17",
-    "author": "FerroLink Tools",
-    "category": "General",
-    "readTime": "5 min read",
-    "image": "",
-    "keywords": "",
-    "relatedProducts": [],
-    "content": [
-      {
-        "type": "paragraph",
-        "text": "Updated paragraph content."
-      }
-    ]
   }
 ];
 

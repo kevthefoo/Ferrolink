@@ -54,13 +54,15 @@ FerroLink Tools is a premium hand tools manufacturer focused on:
 
 ## Technology Stack
 
--   **Framework**: Next.js 15.5.4 with App Router
+-   **Framework**: Next.js 16.4 with App Router
 -   **Styling**: Tailwind CSS 4.0
 -   **Language**: JavaScript/React
 -   **Build Tool**: Turbopack for fast development
 -   **Font**: Geist font family for modern typography
 
 ## Getting Started
+
+Use Node.js 24 LTS (the dependency tree requires Node.js 22.13 or newer).
 
 1. **Install Dependencies**
 
@@ -83,6 +85,19 @@ FerroLink Tools is a premium hand tools manufacturer focused on:
 -   `npm run build` - Build production application
 -   `npm run start` - Start production server
 -   `npm run lint` - Run ESLint for code quality
+-   `npm test` - Verify the Next.js ESLint glob compatibility adapter
+
+## Dependency Security
+
+Run `npm audit` to check both production and development dependencies.
+The scoped `@next/eslint-plugin-next` override replaces its `fast-glob`
+dependency with a local adapter backed by `tinyglobby` 0.2.17 to remove the
+unpatched `braces` stack-exhaustion vulnerability (GHSA-vfj7-8cjw-p6xm).
+The adapter preserves the plugin's `globSync` directory behavior by disabling
+automatic directory expansion, removing trailing directory slashes, and retaining
+absolute input paths. Keep this
+override scoped to the plugin; it is not a general fast-glob replacement.
+Remove it when the upstream plugin no longer depends on vulnerable braces.
 
 ## Project Structure
 
